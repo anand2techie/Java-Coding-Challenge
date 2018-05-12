@@ -42,6 +42,10 @@ public class SiteVersion {
 		this.siteName = siteName;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return siteName;
+	}
 
 }

@@ -23,7 +23,7 @@ public class AdMetrics {
 	private int adMetricsId;
 
 	@Column(name = "month")
-	private int month;
+	private String month;
 
 	@ManyToOne
 	@JoinColumn(name = "site_version_id")
@@ -64,11 +64,11 @@ public class AdMetrics {
 		this.adMetricsId = adMetricsId;
 	}
 
-	public int getMonth() {
+	public String getMonth() {
 		return month;
 	}
 
-	public void setMonth(int month) {
+	public void setMonth(String month) {
 		this.month = month;
 	}
 

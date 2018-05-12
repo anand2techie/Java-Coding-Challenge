@@ -3,6 +3,7 @@ package com.ad.reporting.util;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormatSymbols;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,7 +56,7 @@ public class CSVParserUtil {
 	private void setMonthfromFileName(AdMetrics adMetric,String fileName) {
 		// TODO Auto-generated method stub
 		String month=fileName.substring(fileName.indexOf("_")+1, fileName.lastIndexOf("_"));
-		adMetric.setMonth(Integer.parseInt(month));
+		adMetric.setMonth(Month.of(Integer.parseInt(month)).name());
 	}
 	
 	private SiteVersion getSite(AdMetrics adMetric, String siteName) {
