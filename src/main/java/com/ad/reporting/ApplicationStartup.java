@@ -35,11 +35,7 @@ public class ApplicationStartup {
 		Resource resource = resourceLoader.getResource("classpath:csvs");
 		File[] files = resource.getFile().listFiles();
 		for (File file : files) {
-			System.out.println(file.getName());
 			List<AdMetrics> csvToBean = csvReaderUtil.readCSVFiles(file);
-			for (AdMetrics object : csvToBean) {
-				System.out.println(object);
-			}
 			adMetricsDaoRepository.saveAll(csvToBean);
 		}
 

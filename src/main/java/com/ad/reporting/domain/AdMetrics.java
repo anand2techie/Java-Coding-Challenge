@@ -21,10 +21,9 @@ public class AdMetrics {
 
 	}
 
-	/*public AdMetrics(int adMetricsId, String month, SiteVersion siteVersion, int requests, int impressions, int clicks,
-			int conversions, double revenue) {
+	public AdMetrics(String month, SiteVersion siteVersion, double requests, double impressions, double clicks,
+			double conversions, double revenue) {
 		super();
-		this.adMetricsId = adMetricsId;
 		this.month = month;
 		this.siteVersion = siteVersion;
 		this.requests = requests;
@@ -32,7 +31,7 @@ public class AdMetrics {
 		this.clicks = clicks;
 		this.conversions = conversions;
 		this.revenue = revenue;
-	}*/
+	}
 
 	@Id
 	@GeneratedValue

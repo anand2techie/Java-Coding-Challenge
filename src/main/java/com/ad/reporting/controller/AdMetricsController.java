@@ -32,7 +32,7 @@ public class AdMetricsController {
 	ResponseEntity<List<AdMetrics>> getAdMetricsByMonthAndSite(String month, String site) throws AdMetricsException {
 		List<AdMetrics> adMetrics=adMetricsService.getAdMetricsByMonthAndSite(month, site);
 		if (adMetrics==null || adMetrics.isEmpty()){
-            throw new AdMetricsException("Ad Metrics doesn't exist");
+            throw new AdMetricsException("Ad Metrics doesn't exist for the month: "+month+" and site: "+site);
     	}
 		return new ResponseEntity<List<AdMetrics>>(adMetrics, HttpStatus.OK);
 	}

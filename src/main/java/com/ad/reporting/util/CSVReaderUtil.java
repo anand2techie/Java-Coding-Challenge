@@ -20,6 +20,10 @@ import com.ad.reporting.repository.SiteVersionDaoRepository;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 
+/**
+ * @author Ananth
+ * Util class to read csv files
+ */
 @Service
 public class CSVReaderUtil {
 
@@ -31,6 +35,7 @@ public class CSVReaderUtil {
 	@Autowired
 	CSVParserUtil csvParserUtil;
 
+	
 	public List readCSVFiles(File file) throws IOException {
 		CSVReader reader = new CSVReaderBuilder(new FileReader(file)).build();
 		csvParserUtil.setReader(reader, file);
