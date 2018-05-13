@@ -12,35 +12,9 @@ import org.springframework.stereotype.Service;
 import com.ad.reporting.domain.AdMetrics;
 import com.ad.reporting.repository.AdMetricsDaoRepository;
 
-@Service
-@Transactional
-public class AdMetricsService {
+public interface AdMetricsService {
 
-	@Autowired
-	AdMetricsDaoRepository adMetricsDaoRepository;
-
-	@Autowired
-	SiteVersionService siteVersionService;
-
-	public List<AdMetrics> getAdMetricsByMonthAndSite(String month, String siteVersionId) {
-		if (StringUtils.isNumeric(month)) {
-			month = Month.of(Integer.parseInt(month)).name();
-		}
-		return adMetricsDaoRepository.getAdMetricsByMonthAndSiteVersion(month.toUpperCase().substring(0, 3),
-				siteVersionId);
-	}
-
-	public List<AdMetrics> getAdMetricsByMonth(String month) {
-		// TODO Auto-generated method stub
-		if (StringUtils.isNumeric(month)) {
-			month = Month.of(Integer.parseInt(month)).name();
-		}
-		return adMetricsDaoRepository.getAdMetricsByMonth(month.toUpperCase().substring(0, 3));
-	}
-
-	public List<AdMetrics> getAdMetricsBySite(String site) {
-		// TODO Auto-generated method stub
-		return adMetricsDaoRepository.getAdMetricsBySiteVersion(siteVersionService.getSiteBySiteId(site));
-	}
-
+	public List<AdMetrics> getAdMetricsByMonthAndSite(String month, String siteVersionId);
+	public List<AdMetrics> getAdMetricsByMonth(String month);
+	public List<AdMetrics> getAdMetricsBySite(String site);
 }

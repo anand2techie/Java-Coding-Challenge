@@ -10,7 +10,16 @@ import org.springframework.stereotype.Service;
 import com.ad.reporting.domain.SiteVersion;
 import com.ad.reporting.repository.SiteVersionDaoRepository;
 
+@Service("siteVersionService")
+@Transactional
+public class SiteVersionServiceImpl implements SiteVersionService{
+	
+	@Autowired
+	SiteVersionDaoRepository siteVersionDaoRepository;
+	
+	public Optional<SiteVersion> getSiteBySiteId(String siteVersionId){
+		return siteVersionDaoRepository.findById(siteVersionId);
+	}
 
-public interface SiteVersionService {
-	public Optional<SiteVersion> getSiteBySiteId(String siteVersionId);
+
 }

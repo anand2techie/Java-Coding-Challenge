@@ -8,7 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.ad.reporting.annotations.Precision;
+import com.ad.reporting.util.DoubleContextualSerializer;
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
 @Table(name = "ad_metrics")
@@ -17,6 +20,19 @@ public class AdMetrics {
 	public AdMetrics() {
 
 	}
+
+	/*public AdMetrics(int adMetricsId, String month, SiteVersion siteVersion, int requests, int impressions, int clicks,
+			int conversions, double revenue) {
+		super();
+		this.adMetricsId = adMetricsId;
+		this.month = month;
+		this.siteVersion = siteVersion;
+		this.requests = requests;
+		this.impressions = impressions;
+		this.clicks = clicks;
+		this.conversions = conversions;
+		this.revenue = revenue;
+	}*/
 
 	@Id
 	@GeneratedValue
@@ -29,32 +45,98 @@ public class AdMetrics {
 	@JoinColumn(name = "site_version_id")
 	private SiteVersion siteVersion;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "requests")
-	private int requests;
+	private double requests;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "impressions")
-	private int impressions;
+	private double impressions;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "clicks")
-	private int clicks;
+	private double clicks;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "conversions")
-	private int conversions;
+	private double conversions;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "revenue")
 	private double revenue;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "ctr")
-	private int ctr;
+	private double ctr;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "cr")
-	private int cr;
+	private double cr;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "fill_rate")
-	private int fillRate;
+	private double fillRate;
 
+	@JsonSerialize(using = DoubleContextualSerializer.class)
+	@Precision(precision = 2)
 	@Column(name = "e_cpm")
-	private int eCPM;
+	private double eCPM;
+	
+	public double getImpressions() {
+		return impressions;
+	}
+
+	public void setImpressions(double impressions) {
+		this.impressions = impressions;
+	}
+
+	public double getClicks() {
+		return clicks;
+	}
+
+	public void setClicks(double clicks) {
+		this.clicks = clicks;
+	}
+
+	public double getCtr() {
+		return ctr;
+	}
+
+	public void setCtr(double ctr) {
+		this.ctr = ctr;
+	}
+
+	public double getCr() {
+		return cr;
+	}
+
+	public void setCr(double cr) {
+		this.cr = cr;
+	}
+
+	public double getFillRate() {
+		return fillRate;
+	}
+
+	public void setFillRate(double fillRate) {
+		this.fillRate = fillRate;
+	}
+
+	public double geteCPM() {
+		return eCPM;
+	}
+
+	public void seteCPM(double eCPM) {
+		this.eCPM = eCPM;
+	}
 
 	public int getAdMetricsId() {
 		return adMetricsId;
@@ -72,38 +154,6 @@ public class AdMetrics {
 		this.month = month;
 	}
 
-	public int getRequests() {
-		return requests;
-	}
-
-	public void setRequests(int requests) {
-		this.requests = requests;
-	}
-
-	public int getImpressions() {
-		return impressions;
-	}
-
-	public void setImpressions(int impressions) {
-		this.impressions = impressions;
-	}
-
-	public int getClicks() {
-		return clicks;
-	}
-
-	public void setClicks(int clicks) {
-		this.clicks = clicks;
-	}
-
-	public int getConversions() {
-		return conversions;
-	}
-
-	public void setConversions(int conversions) {
-		this.conversions = conversions;
-	}
-
 	public double getRevenue() {
 		return revenue;
 	}
@@ -112,44 +162,28 @@ public class AdMetrics {
 		this.revenue = revenue;
 	}
 
-	public int getCtr() {
-		return ctr;
-	}
-
-	public void setCtr(int ctr) {
-		this.ctr = ctr;
-	}
-
-	public int getCr() {
-		return cr;
-	}
-
-	public void setCr(int cr) {
-		this.cr = cr;
-	}
-
-	public int getFillRate() {
-		return fillRate;
-	}
-
-	public void setFillRate(int fillRate) {
-		this.fillRate = fillRate;
-	}
-
-	public int geteCPM() {
-		return eCPM;
-	}
-
-	public void seteCPM(int eCPM) {
-		this.eCPM = eCPM;
-	}
-
 	public SiteVersion getSiteVersion() {
 		return siteVersion;
 	}
 
 	public void setSiteVersion(SiteVersion siteVersion) {
 		this.siteVersion = siteVersion;
+	}
+
+	public double getRequests() {
+		return requests;
+	}
+
+	public void setRequests(double requests) {
+		this.requests = requests;
+	}
+
+	public double getConversions() {
+		return conversions;
+	}
+
+	public void setConversions(double conversions) {
+		this.conversions = conversions;
 	}
 	
 	
