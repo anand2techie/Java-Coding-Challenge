@@ -18,7 +18,7 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
-```running the application
+## Launching the application
 After application started, navigate to localhost:8080/reports to view the metrics data and pass request param if needed like: 
 localhost:8080/reports?month=1&site=iOS
 localhost:8080/reports?month=1 for aggregate report
