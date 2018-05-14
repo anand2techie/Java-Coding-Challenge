@@ -20,9 +20,9 @@ mvn spring-boot:run
 
 ## Launching the application
 After application started, navigate to localhost:8080/reports to view the metrics data and pass request param if needed like: 
-localhost:8080/reports?month=1&site=iOS
+```localhost:8080/reports?month=1&site=iOS
 localhost:8080/reports?month=1 for aggregate report
-localhost:8080/reports?site=iOS for aggregate report
+localhost:8080/reports?site=iOS for aggregate report```
 
 
 
